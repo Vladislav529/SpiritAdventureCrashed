@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class QuitButton : MonoBehaviour
 {
-    public void OnClick()
+    void OnClick()
     {
-        print("Работает");
+        Application.Quit();
     }
 }   
