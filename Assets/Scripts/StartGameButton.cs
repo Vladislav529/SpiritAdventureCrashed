@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionsButton : MonoBehaviour
+public class StartGameButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("Options");
+        SceneManager.LoadScene("Game");
     }
 }
