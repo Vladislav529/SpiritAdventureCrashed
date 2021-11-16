@@ -7,14 +7,17 @@ using UnityEngine.UI;
 
 public class BaseWindow : MonoBehaviour
 {
-    public Button closeButton;
+	public Button closeButton;
 
-    [HideInInspector]
-    public UnityEvent<BaseWindow> closeEvent { get; private set; }
+	[HideInInspector]
+	public UnityEvent<BaseWindow> closeEvent { get; private set; }
 
-    private void Awake()
-    {
-        closeEvent = new UnityEvent<BaseWindow>();
-        closeButton.onClick.AddListener(() => closeEvent.Invoke(this));
-    }
+	private void Awake()
+	{
+		closeEvent = new UnityEvent<BaseWindow>();
+		if (closeButton != null)
+		{
+			closeButton.onClick.AddListener(() => closeEvent.Invoke(this));
+		}
+	}
 }
