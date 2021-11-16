@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class QuitButton : MonoBehaviour
 {
+    public WindowManager windowsManager;
     public void OnClick()
     {
-        Application.Quit();
+        windowsManager.ShowWindow("BasicWindow");
+        // Application.Quit();
     }
 }   
