@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Set in Inspector")]
     public float speed = 5f;
+    public float runSpeed = 10f;
     public float jumpForce = 500f;
     public GameObject jumpSprite;
     public GameObject idleSprite;
@@ -39,7 +40,14 @@ public class CharacterMovement : MonoBehaviour
 
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
         }
-        GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
+        }
 
         if (xAxis > 0 && !facingRight)
             Flip();
