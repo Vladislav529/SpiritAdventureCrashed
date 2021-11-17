@@ -20,21 +20,21 @@ public class PlantClimb : MonoBehaviour
         pressButtonDisclaimer.SetActive(false);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("OnCollisionEnt");
-        isColliding = true;
+        print(collider);
+        if(collider.gameObject == character) isColliding = true;
         pressButtonDisclaimer.SetActive(true);
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        Debug.Log("OnCollisionExi");
-        isColliding = false;
+        if (collider.gameObject == character) isColliding = false;
+        pressButtonDisclaimer.SetActive(false);
     }
    
     void createPlant()
     {
-        if (isColliding && Input.GetKey(KeyCode.E))
+        if (isColliding && Input.GetKeyDown(KeyCode.E))
         {
             plant.SetActive(true);
         }
@@ -51,8 +51,8 @@ public class PlantClimb : MonoBehaviour
             character.transform.position = position;
         }
     }
-    void LateUpdate()
+    private void Update()
     {
-            
+        createPlant();
     }
 }
