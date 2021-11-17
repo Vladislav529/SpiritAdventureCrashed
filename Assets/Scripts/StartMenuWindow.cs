@@ -17,11 +17,11 @@ public class StartMenuWindow : BaseWindow
 
 	private void StartGame()
 	{
-		SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+		SceneManager.LoadScene("Game"); // LoadSceneMode.Additive
 	}
 	private void ShowOptions()
 	{
-		_windowManager.ShowWindow("Options");
+		_windowManager.ShowWindow("OptionsMenu");
 	}
 	private void QuitGame()
 	{
