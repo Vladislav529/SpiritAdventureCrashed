@@ -8,7 +8,7 @@ public class PlantClimb : MonoBehaviour
     public GameObject character;
     public GameObject plant;
     public GameObject pressButtonDisclaimer;
-    public float climbingSpeed = 5;
+    public float climbingSpeed = 0.1f;
 
     public static bool isClimbing = false;
 
@@ -40,19 +40,38 @@ public class PlantClimb : MonoBehaviour
         }
     }
 
-    private void climb()
-    {
-        
-        if(plant.activeInHierarchy == true && isColliding && Input.GetKey(KeyCode.Space))
-        {
-            Vector3 position = character.transform.position;
-            position.x += climbingSpeed;
-            position.y = plant.transform.position.y;
-            character.transform.position = position;
-        }
-    }
-    private void Update()
+   
+    private void FixedUpdate()
     {
         createPlant();
+
+
+
+        float yAxis = Input.GetAxis("Vertical");
+
+        if (plant.activeInHierarchy == true && isColliding && Input.GetKeyDown(KeyCode.Space))
+        {
+            if(isClimbing == false)
+            {
+                isClimbing = true;
+            }
+            else
+            {
+                isClimbing = false;
+            }
+        }
+
+
+        if (!isColliding) isClimbing = false;
+
+        if (isClimbing)
+        {
+                Vector3 position = character.transform.position;
+
+                position.x = plant.transform.position.x;
+                position.y += yAxis * climbingSpeed;
+
+                character.transform.position = position;
+        }
     }
 }

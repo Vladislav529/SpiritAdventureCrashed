@@ -613,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222168187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: -4, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 590356618}
@@ -636,7 +636,7 @@ MonoBehaviour:
   character: {fileID: 1477683603}
   plant: {fileID: 590356614}
   pressButtonDisclaimer: {fileID: 554878596}
-  climbingSpeed: 5
+  climbingSpeed: 0.05
 --- !u!61 &1222168190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &1434173140
 GameObject:

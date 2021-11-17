@@ -52,12 +52,13 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
+
         if (xAxis > 0 && !facingRight)
             Flip();
         else if (xAxis < 0 && facingRight)
             Flip();
 
-        if (grounded)
+        if (grounded || PlantClimb.isClimbing)
         {
             jumpSprite.SetActive(false);
             idleSprite.SetActive(true);
@@ -72,6 +73,7 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
+    
 
     void Flip()
     {
