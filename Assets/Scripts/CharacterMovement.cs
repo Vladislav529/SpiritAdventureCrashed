@@ -8,6 +8,8 @@ public class CharacterMovement : MonoBehaviour
     [Header("Set in Inspector")]
     public float speed = 5f;
     public float jumpForce = 500f;
+    public GameObject jumpSprite;
+    public GameObject idleSprite;
     
     
     bool facingRight = true;
@@ -16,7 +18,11 @@ public class CharacterMovement : MonoBehaviour
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
 
-
+    private void Start()
+    {
+        jumpSprite.SetActive(false);
+        idleSprite.SetActive(true);
+    }
     void FixedUpdate()
     {
         
@@ -28,7 +34,7 @@ public class CharacterMovement : MonoBehaviour
     {
         float xAxis = Input.GetAxis("Horizontal"); // получаем a d;
 
-        if (grounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
+        if (grounded && (Input.GetKeyDown(KeyCode.Space)))
         {
 
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
@@ -39,6 +45,19 @@ public class CharacterMovement : MonoBehaviour
             Flip();
         else if (xAxis < 0 && facingRight)
             Flip();
+
+        if (grounded)
+        {
+            jumpSprite.SetActive(false);
+            idleSprite.SetActive(true);
+        }
+
+        else
+        {
+            jumpSprite.SetActive(true);
+            idleSprite.SetActive(false);
+        }
+
 
     }
 
