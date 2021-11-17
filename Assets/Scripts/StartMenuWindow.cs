@@ -16,12 +16,13 @@ public class StartMenuWindow : BaseWindow
 		base.Awake();
 		startButton.onClick.AddListener(StartGame);
 		optionsButton.onClick.AddListener(ShowOptions);
+		quitButton.onClick.AddListener(QuitGame);
 	}
 
 	private void StartGame()
 	{
 		SceneManager.LoadScene("Game", LoadSceneMode.Additive); // LoadSceneMode.Additive
-		_windowManager.CloseWindow(this);
+		_windowManager.CloseAllWindow(this);
 	}
 	private void ShowOptions()
 	{
@@ -29,6 +30,6 @@ public class StartMenuWindow : BaseWindow
 	}
 	private void QuitGame()
 	{
-
+		_windowManager.ShowWindow("QuitMenu");
 	}
 }

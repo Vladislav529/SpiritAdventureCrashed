@@ -31,6 +31,14 @@ public class WindowManager : MonoBehaviour
         }
     }
 
+    public void CloseAllWindow(BaseWindow window)
+    {
+        Destroy(window.gameObject);
+        while (openedWindows.Count > 0) {
+            Destroy(openedWindows[openedWindows.Count - 1]);
+        }
+    }
+
     public void ExpandWindow(BaseWindow window)
     {
         window.gameObject.SetActive(true);
