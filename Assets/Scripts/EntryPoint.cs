@@ -9,6 +9,6 @@ public class EntryPoint : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        windowManager.ShowWindow("BaseWindow");
+        windowManager.ShowWindow("StartMenu");
     }
 }
