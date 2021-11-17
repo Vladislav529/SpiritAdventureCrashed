@@ -11,6 +11,12 @@ public class BaseWindow : MonoBehaviour
 
 	[HideInInspector]
 	public UnityEvent<BaseWindow> closeEvent { get; private set; }
+	protected WindowManager _windowManager;
+
+	public void Init(WindowManager windowManager)
+    {
+		_windowManager = windowManager;
+    }
 
 	private void Awake()
 	{

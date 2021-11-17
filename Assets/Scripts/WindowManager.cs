@@ -11,6 +11,7 @@ public class WindowManager : MonoBehaviour
     {
         var prototype = Resources.Load<BaseWindow>(prefabName);
         var window = GameObject.Instantiate<BaseWindow>(prototype, windowParent.transform);
+        window.Init(this);
         window.closeEvent.AddListener(CloseWindow);
     }
 
