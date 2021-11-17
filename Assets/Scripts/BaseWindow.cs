@@ -18,7 +18,7 @@ public class BaseWindow : MonoBehaviour
 		_windowManager = windowManager;
     }
 
-	private void Awake()
+	public virtual void Awake()
 	{
 		closeEvent = new UnityEvent<BaseWindow>();
 		if (closeButton != null)
