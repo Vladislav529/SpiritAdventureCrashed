@@ -10,14 +10,18 @@ public class StartMenuWindow : BaseWindow
 	public Button optionsButton;
 	public Button quitButton;
 
-	private void Awake()
+
+	public override void Awake() 
 	{
+		base.Awake();
 		startButton.onClick.AddListener(StartGame);
+		optionsButton.onClick.AddListener(ShowOptions);
 	}
 
 	private void StartGame()
 	{
-		SceneManager.LoadScene("Game"); // LoadSceneMode.Additive
+		SceneManager.LoadScene("Game", LoadSceneMode.Additive); // LoadSceneMode.Additive
+		_windowManager.CloseWindow(this);
 	}
 	private void ShowOptions()
 	{
