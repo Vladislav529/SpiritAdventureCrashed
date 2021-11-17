@@ -5,7 +5,7 @@ using UnityEngine.UI; //Работа с интерфейсами
 using UnityEngine.SceneManagement; //Работа со сценами
 using UnityEngine.Audio; //Работа с аудио
 
-public class Options : MonoBehaviour
+public class Options : BaseWindow
 {
     public float volume = 0; //Громкость
     public int quality = 0; //Качество
