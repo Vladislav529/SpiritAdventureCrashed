@@ -35,18 +35,21 @@ public class CharacterMovement : MonoBehaviour
     {
         float xAxis = Input.GetAxis("Horizontal"); // получаем a d;
 
-        if (grounded && (Input.GetKeyDown(KeyCode.Space)))
+        if (!PlantClimb.isClimbing)
         {
+            if (grounded && (Input.GetKeyDown(KeyCode.Space)))
+            {
 
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-        }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+            }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
+            }
         }
 
         if (xAxis > 0 && !facingRight)
