@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 4891610861001190234}
   - component: {fileID: 106320156024749344}
   - component: {fileID: 905948883081709702}
-  - component: {fileID: 6685213518833100867}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -361,7 +360,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsButton, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -371,18 +370,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6685213518833100867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3481180658676345421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cbbdbbc8e8e3e4794184b310aed3cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4706053094060729788
 GameObject:
   m_ObjectHideFlags: 0
