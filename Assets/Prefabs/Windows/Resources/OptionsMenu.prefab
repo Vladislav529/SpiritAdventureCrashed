@@ -2247,12 +2247,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131f893cd57581c4bb491d71faf15ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeButton: {fileID: 7378511864822316904}
+  closeButton: {fileID: 0}
   volume: 0
   quality: 0
   isFullscreen: 0
   audioMixer: {fileID: 24100000, guid: f4a796aac57b6ef48bcc680333a02b21, type: 2}
   resolutionDropdown: {fileID: 7378511865964035318}
+  saveButton: {fileID: 2242085435020774463}
+  exitButton: {fileID: 7378511864822316904}
 --- !u!1 &7378511864899141877
 GameObject:
   m_ObjectHideFlags: 0
