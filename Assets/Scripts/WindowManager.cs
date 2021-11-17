@@ -34,8 +34,10 @@ public class WindowManager : MonoBehaviour
     public void CloseAllWindow(BaseWindow window)
     {
         Destroy(window.gameObject);
+        openedWindows.Remove(window);
         while (openedWindows.Count > 0) {
             Destroy(openedWindows[openedWindows.Count - 1]);
+            openedWindows.Remove(openedWindows[openedWindows.Count - 1]);
         }
     }
 
