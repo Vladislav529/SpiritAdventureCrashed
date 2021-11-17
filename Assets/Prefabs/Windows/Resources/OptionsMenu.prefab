@@ -2201,7 +2201,7 @@ MonoBehaviour:
   quality: 0
   isFullscreen: 0
   audioMixer: {fileID: 0}
-  resolutionDropdown: {fileID: 0}
+  resolutionDropdown: {fileID: 7378511865964035318}
 --- !u!1 &7378511864899141877
 GameObject:
   m_ObjectHideFlags: 0
