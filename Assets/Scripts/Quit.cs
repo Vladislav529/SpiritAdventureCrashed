@@ -17,7 +17,7 @@ public class Quit : BaseWindow
 
 	private void ReturnToMain()
 	{
-		_windowManager.ShowWindow("StartMenu");
+		_windowManager.CloseWindow(this);
 	}
 	private void QuitTheGame()
 	{
