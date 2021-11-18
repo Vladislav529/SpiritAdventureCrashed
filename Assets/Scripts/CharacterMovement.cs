@@ -33,11 +33,9 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD
+
         float yAxis = Input.GetAxis("Vertical");
 
-=======
->>>>>>> parent of 8ed3d11 (Merge branch 'main' of https://github.com/Vladislav529/SpiritAdventure)
         float xAxis = Input.GetAxis("Horizontal"); // получаем a d;
 
         if (!PlantClimb.isClimbing)
