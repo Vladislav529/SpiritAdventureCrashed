@@ -21,8 +21,7 @@ public class StartMenuWindow : BaseWindow
 
 	private void StartGame()
 	{
-		SceneManager.LoadScene("Game", LoadSceneMode.Additive); // LoadSceneMode.Additive
-		_windowManager.CloseAllWindow(this);
+		SceneManager.LoadScene("Game"); // LoadSceneMode.Additive
 	}
 	private void ShowOptions()
 	{
@@ -31,5 +30,6 @@ public class StartMenuWindow : BaseWindow
 	private void QuitGame()
 	{
 		_windowManager.ShowWindow("QuitMenu");
+		// _windowManager.ExpandWindow(this);
 	}
 }

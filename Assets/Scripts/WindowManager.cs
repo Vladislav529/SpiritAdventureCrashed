@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class WindowManager : MonoBehaviour
     {
         var prototype = Resources.Load<BaseWindow>(prefabName);
         var window = GameObject.Instantiate<BaseWindow>(prototype, windowParent.transform);
+        if (openedWindows.Any(w => w.GetType() == window.GetComponent<BaseWindow>().GetType())) return; // ÏÎÔÈÊÑÈÒÜ
         window.Init(this);
         window.closeEvent.AddListener(CloseWindow);
         if (openedWindows.Count > 0)
@@ -28,16 +30,6 @@ public class WindowManager : MonoBehaviour
         if (openedWindows.Count > 0)
         {
             ExpandWindow(openedWindows[openedWindows.Count - 1]);
-        }
-    }
-
-    public void CloseAllWindow(BaseWindow window)
-    {
-        Destroy(window.gameObject);
-        openedWindows.Remove(window);
-        while (openedWindows.Count > 0) {
-            Destroy(openedWindows[openedWindows.Count - 1]);
-            openedWindows.Remove(openedWindows[openedWindows.Count - 1]);
         }
     }
 
