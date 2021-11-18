@@ -314,6 +314,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!1 &757853333
@@ -428,6 +429,8 @@ Transform:
   m_Father: {fileID: 1477683604}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of e6c7fb0 (base character animations)
 --- !u!1 &1434173140
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +513,10 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of e6c7fb0 (base character animations)
 --- !u!1 &1477683603
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +530,6 @@ GameObject:
   - component: {fileID: 1477683606}
   - component: {fileID: 1477683607}
   - component: {fileID: 1477683608}
-  - component: {fileID: 1477683610}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -544,6 +549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 37054620}
+  - {fileID: 1434173141}
   - {fileID: 1505814538}
   - {fileID: 911614786}
   m_Father: {fileID: 0}
@@ -564,13 +570,13 @@ MonoBehaviour:
   speed: 5
   runSpeed: 8
   jumpForce: 500
+  jumpSprite: {fileID: 1434173140}
   idleSprite: {fileID: 37054619}
   groundCheck: {fileID: 1505814538}
   groundRadius: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  animator: {fileID: 1477683610}
 --- !u!61 &1477683606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -634,25 +640,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &1477683610
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477683603}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a5a08bb840ea40308083ff1de3ec13a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1505814537
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +668,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1477683604}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573287255
 GameObject:

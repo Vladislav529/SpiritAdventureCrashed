@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 5f;
     public float runSpeed = 10f;
     public float jumpForce = 500f;
+    public GameObject jumpSprite;
     public GameObject idleSprite;
     
     
@@ -18,14 +19,10 @@ public class CharacterMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
-    public Animator animator;
-
-    
-    private static readonly int isGrounded = Animator.StringToHash("isGrounded");
-    private static readonly int isJumping = Animator.StringToHash("isJumping");
 
     private void Start()
     {
+        jumpSprite.SetActive(false);
         idleSprite.SetActive(true);
     }
     void FixedUpdate()
@@ -39,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
     {
         float yAxis = Input.GetAxis("Vertical");
 
-        float xAxis = Input.GetAxis("Horizontal"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ a d;
+        float xAxis = Input.GetAxis("Horizontal"); // получаем a d;
 
         if (!PlantClimb.isClimbing)
         {
@@ -86,19 +83,20 @@ public class CharacterMovement : MonoBehaviour
 
         if (grounded || PlantClimb.isClimbing)
         {
-            Debug.LogWarning("is grounded");
-            animator.SetBool(isGrounded, true);
+            jumpSprite.SetActive(false);
+            idleSprite.SetActive(true);
         }
 
         else
         {
-            Debug.LogWarning("is jumping");
-            animator.SetBool(isGrounded, false);
+            jumpSprite.SetActive(true);
+            idleSprite.SetActive(false);
         }
 
 
     }
 
+    
 
     void Flip()
     {
