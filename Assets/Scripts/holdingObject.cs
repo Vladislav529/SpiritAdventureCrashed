@@ -7,12 +7,20 @@ public class holdingObject : MonoBehaviour
     [Header("Set in Inspector")]
     // public GameObject thingWeHold;
     public GameObject character;
-    public GameObject hand;
-
 
     private void Update()
     {
-        transform.position = hand.transform.position;
+        float xAxis = Input.GetAxis("Horizontal");
+
+        print(xAxis);
+
+        Vector3 position = transform.position;
+
+        position.x = character.transform.position.x + xAxis;
+
+        position.y = character.transform.position.y;
+
+        transform.position = position;
     }
 
 }

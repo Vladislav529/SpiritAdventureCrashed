@@ -315,6 +315,7 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!1 &757853333
@@ -527,6 +528,8 @@ SpriteRenderer:
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of e6c7fb0 (base character animations)
+=======
+>>>>>>> parent of 98fbf1e (f to my project)
 --- !u!1 &1477683603
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +564,6 @@ Transform:
   - {fileID: 37054620}
   - {fileID: 1434173141}
   - {fileID: 1505814538}
-  - {fileID: 911614786}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -712,7 +714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1477683603}
-  hand: {fileID: 911614785}
 --- !u!212 &1573287257
 SpriteRenderer:
   m_ObjectHideFlags: 0
