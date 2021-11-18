@@ -21,6 +21,6 @@ public class CameraMovement : MonoBehaviour
     {
         Vector3 characterPos = character.transform.position;
 
-        Camera.main.transform.position = new Vector3(characterPos.x, characterPos.y, Camera.main.transform.position.z);
+        camera.transform.position = new Vector3(characterPos.x, characterPos.y, camera.transform.position.z);
     }
 }

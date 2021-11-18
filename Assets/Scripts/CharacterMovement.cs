@@ -9,19 +9,23 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 5f;
     public float runSpeed = 10f;
     public float jumpForce = 500f;
-    public GameObject jumpSprite;
     public GameObject idleSprite;
     
     
     bool facingRight = true;
     bool grounded = false;
+    bool isHolding = false;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
+    public Animator animator;
+
+    
+    private static readonly int isGrounded = Animator.StringToHash("isGrounded");
+    private static readonly int isJumping = Animator.StringToHash("isJumping");
 
     private void Start()
     {
-        jumpSprite.SetActive(false);
         idleSprite.SetActive(true);
     }
     void FixedUpdate()
@@ -33,25 +37,47 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        float xAxis = Input.GetAxis("Horizontal"); // получаем a d;
+        float yAxis = Input.GetAxis("Vertical");
+
+        float xAxis = Input.GetAxis("Horizontal"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ a d;
 
         if (!PlantClimb.isClimbing)
         {
-            if (grounded && (Input.GetKeyDown(KeyCode.Space)))
+            if (!isHolding)
             {
+                if (grounded && (Input.GetKeyDown(KeyCode.Space)))
+                {
 
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-            }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+                }
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
+                }
             }
             else
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
+                if (grounded && (Input.GetKeyDown(KeyCode.Space)))
+                {
+
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce - 100));
+                }
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed - 4, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed - 2, GetComponent<Rigidbody2D>().velocity.y);
+                }
             }
         }
 
+       
 
         if (xAxis > 0 && !facingRight)
             Flip();
@@ -60,20 +86,19 @@ public class CharacterMovement : MonoBehaviour
 
         if (grounded || PlantClimb.isClimbing)
         {
-            jumpSprite.SetActive(false);
-            idleSprite.SetActive(true);
+            Debug.LogWarning("is grounded");
+            animator.SetBool(isGrounded, true);
         }
 
         else
         {
-            jumpSprite.SetActive(true);
-            idleSprite.SetActive(false);
+            Debug.LogWarning("is jumping");
+            animator.SetBool(isGrounded, false);
         }
 
 
     }
 
-    
 
     void Flip()
     {
@@ -81,5 +106,10 @@ public class CharacterMovement : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void pickUp()
+    {
+        isHolding = true;
     }
 }
