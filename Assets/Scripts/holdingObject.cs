@@ -12,13 +12,15 @@ public class holdingObject : MonoBehaviour
     {
         float xAxis = Input.GetAxis("Horizontal");
 
-        Vector3 position = this.transform.position;
+        print(xAxis);
+
+        Vector3 position = transform.position;
 
         position.x = character.transform.position.x + xAxis;
 
         position.y = character.transform.position.y;
 
-        this.transform.position = position;
+        transform.position = position;
     }
 
 }
