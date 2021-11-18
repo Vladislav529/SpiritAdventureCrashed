@@ -62,16 +62,9 @@ public class PlantClimb : MonoBehaviour
         }
 
 
-        if (!isColliding) isClimbing = false;
+        if (!isColliding) 
+            isClimbing = false;
 
-        if (isClimbing)
-        {
-                Vector3 position = character.transform.position;
-
-                position.x = plant.transform.position.x;
-                position.y += yAxis * climbingSpeed;
-
-                character.transform.position = position;
-        }
+        
     }
 }
