@@ -15,7 +15,6 @@ public class CharacterMovement : MonoBehaviour
     
     bool facingRight = true;
     bool grounded = false;
-    bool isHolding = false;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
@@ -34,47 +33,30 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< HEAD
         float yAxis = Input.GetAxis("Vertical");
 
+=======
+>>>>>>> parent of 8ed3d11 (Merge branch 'main' of https://github.com/Vladislav529/SpiritAdventure)
         float xAxis = Input.GetAxis("Horizontal"); // получаем a d;
 
         if (!PlantClimb.isClimbing)
         {
-            if (!isHolding)
+            if (grounded && (Input.GetKeyDown(KeyCode.Space)))
             {
-                if (grounded && (Input.GetKeyDown(KeyCode.Space)))
-                {
 
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-                }
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
-                }
-                else
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
-                }
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+            }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed, GetComponent<Rigidbody2D>().velocity.y);
             }
             else
             {
-                if (grounded && (Input.GetKeyDown(KeyCode.Space)))
-                {
-
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce - 100));
-                }
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * runSpeed - 4, GetComponent<Rigidbody2D>().velocity.y);
-                }
-                else
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed - 2, GetComponent<Rigidbody2D>().velocity.y);
-                }
+                GetComponent<Rigidbody2D>().velocity = new Vector2(xAxis * speed, GetComponent<Rigidbody2D>().velocity.y);
             }
         }
 
-       
 
         if (xAxis > 0 && !facingRight)
             Flip();
@@ -104,10 +86,5 @@ public class CharacterMovement : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    void pickUp()
-    {
-        isHolding = true;
     }
 }
