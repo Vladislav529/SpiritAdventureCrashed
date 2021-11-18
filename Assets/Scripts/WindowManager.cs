@@ -13,7 +13,7 @@ public class WindowManager : MonoBehaviour
     {
         var prototype = Resources.Load<BaseWindow>(prefabName);
         var window = GameObject.Instantiate<BaseWindow>(prototype, windowParent.transform);
-        if (openedWindows.Any(w => w.GetType() == window.GetType())) return;
+        if (openedWindows.Any(w => w.GetType() == window.GetComponent<BaseWindow>().GetType())) return; // ÏÎÔÈÊÑÈÒÜ
         window.Init(this);
         window.closeEvent.AddListener(CloseWindow);
         if (openedWindows.Count > 0)

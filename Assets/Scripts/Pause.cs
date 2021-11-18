@@ -22,7 +22,7 @@ public class Pause : BaseWindow
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			_windowManager.CloseWindow(this);
 		}

@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             windowManager.ShowWindow("PauseMenu");
         }
